@@ -26,7 +26,7 @@ import {
   function Kids() {
     const fetchdata = () => {
       dispatch({type:"LOAD",payload:true})
-     axios.get(`https://cute-tan-grasshopper-toga.cyclic.app/kidsData`)
+     axios.get(`http://localhost:3000/kidsData`)
      .then((res)=>{
       setKidsdata(res.data)
       dispatch({type:"LOAD",payload:false})
@@ -46,17 +46,17 @@ import {
       return <Heading size={'md'}>Please Refresh!</Heading>
     }
     if(state.load){
-    return <Box>
-      <Center>
+    return  <Box h={'100vh'} w={'100vw'} display='flex' justifyContent={'center'} alignItems='center'>
+        
     <Spinner
-    thickness='4px'
-    speed='0.65s'
-    emptyColor='gray.200'
-    color='blue.500'
-    size='lg'
-  />
-  </Center>
-  </Box>
+      thickness="4px"
+      speed="0.65s"
+      emptyColor="gray.200"
+      color="blue.500"
+      size="xl"
+      
+    />
+</Box>
   
     }
     return (
@@ -65,7 +65,7 @@ import {
         templateColumns="repeat(auto-fill, minmax(200px, 1fr))"
         mt={"10px"}
       >
-        <Cards data={kidsdata}/>
+        <Cards data={kidsdata} type={'kids'}/>
       </SimpleGrid>
     );
   }

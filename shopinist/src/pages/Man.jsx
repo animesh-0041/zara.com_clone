@@ -23,7 +23,7 @@ function Man() {
   const fetchdata = () => {
     dispatch({ type: "LOAD", payload: true });
     axios
-      .get(`https://cute-tan-grasshopper-toga.cyclic.app/mensData`)
+      .get(`http://localhost:3000/mensData`)
       .then((res) => {
         setMandata(res.data);
         dispatch({ type: "LOAD", payload: false });
@@ -43,8 +43,8 @@ function Man() {
   }
   if (state.load) {
     return (
-      <Box>
-        <Center>
+      <Box h={'100vh'} w={'100vw'} display='flex' justifyContent={'center'} alignItems='center'>
+        
           <Spinner
             thickness="4px"
             speed="0.65s"
@@ -53,7 +53,6 @@ function Man() {
             size="xl"
             
           />
-        </Center>
       </Box>
     );
   }
@@ -63,7 +62,7 @@ function Man() {
       templateColumns="repeat(auto-fill, minmax(200px, 1fr))"
       mt={"10px"}
     >
-      <Cards data={mandata} />
+      <Cards data={mandata} type={'man'}/>
     </SimpleGrid>
   );
 }

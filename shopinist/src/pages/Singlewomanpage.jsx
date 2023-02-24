@@ -13,8 +13,8 @@ import {
   CardBody,
   CardFooter,
 } from "@chakra-ui/react";
-function Singlemanpage() {
-  const { manid } = useParams();
+function Singlewomanpage() {
+  const { womanid } = useParams();
   const intstate = {
     load: false,
     er: false,
@@ -34,9 +34,10 @@ function Singlemanpage() {
   const fetchdata = () => {
     dispatch({ type: "LOAD", payload: true });
     axios
-      .get(`http://localhost:3000/mensData/${manid}`)
+      .get(`http://localhost:3000/womenData/${womanid}`)
       .then((res) => {
         setSinglemandata(res.data);
+        console.log(res.data)
         dispatch({ type: "LOAD", payload: false });
       })
       .catch((Error) => {
@@ -90,7 +91,7 @@ function Singlemanpage() {
             <Button bg={"black"} colorScheme='white' w={'50%'} mt='40px'  _hover={{
     background: "teal.500"
   }}>Add to bag</Button>
-  <Link to='/man'> <Button bg={'red.500'} colorScheme={'white'} mt='40px' _hover={{
+  <Link to='/woman'> <Button bg={'red.500'} colorScheme={'white'} mt='40px' _hover={{
     background: "black"
   }}>Back to page</Button></Link>
         </Box>
@@ -99,4 +100,4 @@ function Singlemanpage() {
     </Box>
   );
 }
-export default Singlemanpage;
+export default Singlewomanpage;
