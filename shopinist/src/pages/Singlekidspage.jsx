@@ -21,6 +21,11 @@ import {
   CardFooter,
 } from "@chakra-ui/react";
 import Privateroute from "../allroutes/Privateroute";
+import { useContext } from "react";
+import { Authcontext } from "../context/Authcontextprovider";
+import { m } from "framer-motion";
+let activeid=JSON.parse(localStorage.getItem("activeid"))||null
+
 function Singlekidspage() {
   const { kidsid } = useParams();
   const intstate = {
@@ -38,6 +43,7 @@ function Singlekidspage() {
         return state;
     }
   };
+  const { contextdispatch, contextstate } = useContext(Authcontext);
 
   const fetchdata = () => {
     dispatch({ type: "LOAD", payload: true });
@@ -45,7 +51,6 @@ function Singlekidspage() {
       .get(`http://localhost:3000/kidsData/${kidsid}`)
       .then((res) => {
         setSinglemandata(res.data);
-        console.log(res.data);
         dispatch({ type: "LOAD", payload: false });
       })
       .catch((Error) => {
@@ -58,6 +63,23 @@ function Singlekidspage() {
   }, []);
   const [singlemandata, setSinglemandata] = useState({});
   const [state, dispatch] = useReducer(reduce, intstate);
+
+//added to cart
+const addedtocart=()=>{
+  if(contextstate.isAuth){
+  axios.get(`http://localhost:3000/signin/${contextstate.activeid}`
+  )
+  .then((res)=>{
+    axios.patch(`http://localhost:3000/signin/${contextstate.activeid}`,{
+      cart:[...res.data.cart,{...singlemandata,quantity:1}]
+    }).then((r)=>console.log(r.data.cart))
+
+  })
+}
+}
+
+
+
   if (state.er) {
     return <Heading size={"md"}>Please Refresh!</Heading>;
   }
@@ -77,14 +99,14 @@ function Singlekidspage() {
     );
   }
   return (
-    <Box display={"flex"} justifyContent="space-around" m="50px 0">
+    <Box display={"flex"} justifyContent="space-around" m="50px 0" flexDirection={["column","column","row","row"]}>
       <Box>
         <Card maxW="xs">
           <Image src={singlemandata.image} borderRadius="lg" />
         </Card>
       </Box>
 
-      <Box w={"35%"}>
+      <Box w={["100%","100%","40%"]}>
         <Heading size={"lg"} colorScheme={"teal"}>
           {singlemandata.title}
         </Heading>
@@ -107,6 +129,7 @@ function Singlekidspage() {
         </Heading>
         <Link to='/cart'>
           <Button
+          onClick={addedtocart}
             bg={"black"}
             colorScheme="white"
             w={"50%"}
@@ -120,7 +143,7 @@ function Singlekidspage() {
         </Link>
         <Link to="/kids">
           {" "}
-          <Button
+          <Button 
             bg={"red.500"}
             colorScheme={"white"}
             mt="40px"
@@ -135,4 +158,5 @@ function Singlekidspage() {
     </Box>
   );
 }
-export default Singlekidspage;
+
+export default Singlekidspage

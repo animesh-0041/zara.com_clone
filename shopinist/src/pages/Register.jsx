@@ -11,6 +11,7 @@ import axios from "axios";
 import { useReducer, useContext,useEffect,useState } from "react";
 import { useToast } from "@chakra-ui/react";
 import { Authcontext } from "../context/Authcontextprovider";
+import { useNavigate } from "react-router-dom";
 const intstate = {
   firstname: "",
   lastname: "",
@@ -20,7 +21,8 @@ const intstate = {
   pincode: "",
   states: "",
 };
-let temp=JSON.parse(localStorage.getItem("activestatus"))||false
+let temp=JSON.parse(localStorage.getItem("activestatus"))||false;
+let activeid=JSON.parse(localStorage.getItem("activeid"))||null
 // contextdispatch({ type: "ISAUTH", payload: temp });
 function reduce(state, { type, payload }) {
   switch (type) {
@@ -51,16 +53,7 @@ function Register() {
     const toast = useToast();
   const { contextdispatch, contextstate } = useContext(Authcontext);
   const [logindata, setLogindata] = useState([]);
-  const fetchdata =()=>{
-    axios.get("http://localhost:3000/signin").then((res) => {
-      setLogindata(res.data);
-    });
-  }
-
-    useEffect(() => {
-      fetchdata()
-  }, []);
-
+const navigate=useNavigate()
   //create account post api
   const createaccount = () => {
     //check email before register
@@ -85,35 +78,33 @@ function Register() {
 
  
     
-    
+//signin
     axios
       .post("http://localhost:3000/signin", {
-        ...state,
+        ...state,cart:[]
       })
       .then((res) => {
-        fetchdata()
-        localStorage.setItem("activestatus",JSON.stringify('true'))
+        console.log(res.data)
+        localStorage.setItem("activestatus",JSON.stringify('true'));
+        localStorage.setItem("activeid",JSON.stringify(res.data.id));
+        contextdispatch({type:"ACTIVEID",payload:res.data.id})
         contextdispatch({ type: "LOAD", payload: false });
         contextdispatch({ type: "ISAUTH", payload: true });
+       
+        navigate("/man")
         toast({
           title: `Welcome ${state.firstname}!`,
           status: "success",
-          duration: 3000,
+          duration: 1000,
           isClosable: true,
           position: "top",
         });
 
       })
       .catch((error) => console.log(error));
-    axios
-      .put("http://localhost:3000/activelogin/1", {
-        ...state,
-      })
-      .then((res) => {
-        console.log(res);
-      })
+  
 
-      .catch((error) => console.log(error));
+     
   };
 
   return (

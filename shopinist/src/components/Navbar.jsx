@@ -10,15 +10,26 @@ import {
   Avatar,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Authcontext } from "../context/Authcontextprovider";
 import axios from "axios";
 import { BsCartPlusFill } from "react-icons/bs";
 let temp =JSON.parse(localStorage.getItem("activestatus"));
+// let activeid=JSON.parse(localStorage.getItem("activeid"))||null
 function Navbar() {
   const { contextdispatch, contextstate } = useContext(Authcontext);
+const [avtara,setAvtara]=useState("")
+useEffect(()=>{
+  if(contextstate.isAuth){
+    axios.get(`http://localhost:3000/signin/${contextstate.activeid}`)
+    .then((res)=>setAvtara(res.data.firstname+" "+res.data.lastname))
+  }
+  else{
+    setAvtara("")
+  }
+},[contextstate.isAuth])
 
-  return (
+  return ( 
     <HStack display={"flex"} justifyContent={"space-around"}>
       <Image src="https://i.ibb.co/v1558dJ/new-logo2.png" />
       <Box>
@@ -37,7 +48,7 @@ function Navbar() {
         <Input placeholder="Search here..." />
       </Box>
       {contextstate.isAuth? (
-       <Link to='/userdashboard'> <Avatar name="Kola Tioluwani" color={'white'} src="https://bit.ly/tioluwani-kolawole"  bg={'teal'} mr='-100px' /></Link>
+       <Link to='/userdashboard'> <Avatar name={avtara} color={'white'} src="https://bit.ly/tioluwani-kolawole"  bg={'teal'} mr='-100px' /></Link>
       ) : (
         <Link to="/login">
           
@@ -46,7 +57,7 @@ function Navbar() {
           </Button>
         </Link>
       )}
-      <Link to='/'><BsCartPlusFill size={25}/></Link>
+      <Link to='/cart'><BsCartPlusFill size={25}/></Link>
     </HStack>
   );
 }

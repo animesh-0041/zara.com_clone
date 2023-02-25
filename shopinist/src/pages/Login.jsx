@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { Authcontext } from "../context/Authcontextprovider";
 let temp=JSON.parse(localStorage.getItem("activestatus"))||false;
+let activeid=JSON.parse(localStorage.getItem("activeid"))||null
 
 function Login() {
   const [logindata, setLogindata] = useState([]);
@@ -19,10 +20,8 @@ function Login() {
     for (const iterator of logindata) {
       if (email == iterator.email && password == iterator.password) {
         flag = true;
-        axios
-        .put("http://localhost:3000/activelogin/1", {
-          ...iterator,
-        })
+        localStorage.setItem("activeid",JSON.stringify(iterator.id))
+        contextdispatch({type:"ACTIVEID",payload:iterator.id})
         break;
       }
     }
@@ -43,7 +42,7 @@ function Login() {
       toast({
         title: `wrong credentials!`,
         status: "error",
-        duration: 3000,
+        duration: 1000,
         isClosable: true,
         position: "top",
       });
