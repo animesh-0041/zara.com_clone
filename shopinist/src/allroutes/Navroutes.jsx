@@ -13,6 +13,9 @@ import Register from "../pages/Register";
 import Userdashboard from "../pages/Userdashboard";
 import Cart from "../pages/Cart";
 import Privateroute from "./Privateroute";
+import Checkout from "../pages/Checkout";
+import Search from "../pages/Search";
+import Searchsinglepage from "../pages/Searchsinglepage";
 function Navroutes() {
   return (
     <Routes>
@@ -24,6 +27,8 @@ function Navroutes() {
       <Route path="/login" element={<Login />}></Route>
       <Route path="/register" element={<Register />}></Route>
       <Route path="/userdashboard" element={<Userdashboard />}></Route>
+      <Route path="/checkout" element={<Checkout/>}></Route>
+      <Route path="/search" element={<Search/>}></Route>
       <Route
         path="/cart"
         element={
@@ -35,6 +40,7 @@ function Navroutes() {
       <Route path="/man/:manid" element={<Singlemanpage />}></Route>
       <Route path="/woman/:womanid" element={<Singlewomanpage />}></Route>
       <Route path="/kids/:kidsid" element={<Singlekidspage />}></Route>
+      <Route path="/search/:searchproid" element={<Searchsinglepage />}></Route>
       {/* <Route path="*" element={<Notfoundpage/>}></Route> */}
     </Routes>
   );

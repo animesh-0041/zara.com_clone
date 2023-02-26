@@ -1,11 +1,14 @@
 import axios from "axios";
-import { createContext,useEffect,useReducer } from "react";
+import { createContext,useEffect,useReducer ,useState} from "react";
 export const Authcontext=createContext();
+
 const intcontext={
     isAuth:JSON.parse(localStorage.getItem("activestatus"))||false,
     load:false,
     activeid:JSON.parse(localStorage.getItem("activeid"))||null,
-    beforecart:[]
+    totalpay:0,
+    forrender:false,
+    serchproduct:""
 }
 
 function contextreducer(contextstate,{type,payload}){
@@ -17,10 +20,12 @@ function contextreducer(contextstate,{type,payload}){
                 
             case "ACTIVEID":
                 return {...contextstate,activeid:payload}
-            case "BEFORE_CART":
-                return {...contextstate,beforecart:payload}
-                
-        
+            case "TOTALPAY":
+                return {...contextstate,totalpay:payload}
+            case "FOR_RENDER":
+                return {...contextstate,forrender:payload}
+            case "SEARCH_PRODUCT":
+                return {...contextstate,serchproduct:payload}
             default:
                 return contextstate
         }
@@ -31,6 +36,7 @@ function contextreducer(contextstate,{type,payload}){
 
 
 function Authcontextprovider({children}){
+    const [carttotal,setCarttotal]=useState(0)
     const [contextstate,contextdispatch]=useReducer(contextreducer,intcontext);
     useEffect(()=>{
         if(contextstate.isAuth){
@@ -44,7 +50,7 @@ function Authcontextprovider({children}){
     },[contextstate.isAuth])
 
 
-    return <Authcontext.Provider value={{contextdispatch,contextstate}}>
+    return <Authcontext.Provider value={{contextdispatch,contextstate,setCarttotal,carttotal}}>
         {children}
     </Authcontext.Provider>
 
