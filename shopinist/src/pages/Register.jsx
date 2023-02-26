@@ -53,6 +53,15 @@ function Register() {
     const toast = useToast();
   const { contextdispatch, contextstate } = useContext(Authcontext);
   const [logindata, setLogindata] = useState([]);
+  const fetchdata =()=>{
+    axios.get("http://localhost:3000/signin").then((res) => {
+      setLogindata(res.data);
+    });
+  }
+
+    useEffect(() => {
+      fetchdata()
+  }, []);
 const navigate=useNavigate()
   //create account post api
   const createaccount = () => {
@@ -79,6 +88,10 @@ const navigate=useNavigate()
  
     
 //signin
+// axios.post("https://cute-tan-grasshopper-toga.cyclic.app/signin",{
+//   ...state,cart:[]
+// })
+// .then((res)=>console.log(res.data))
     axios
       .post("http://localhost:3000/signin", {
         ...state,cart:[]

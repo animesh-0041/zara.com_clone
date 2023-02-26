@@ -34,18 +34,21 @@ function Checkout() {
           })
           .then((r) => {
                 // aleart dialoag
-                contextdispatch({type:"TOTALPAY",payload:0})
-                contextdispatch({type:"LOAD",payload:false})
-                toast({
-                  title: 'Payment successful👍.',
-                  description: "Thanks for buying🙏",
-                  status: 'success',
-                  duration: 5000,
-                  isClosable: true,
-                  position:'top'
-                })  
-
-                navigate('/')
+                setTimeout(()=>{
+                  contextdispatch({type:"TOTALPAY",payload:0})
+                  contextdispatch({type:"LOAD",payload:false})
+                  toast({
+                    title: 'Payment successful👍.',
+                    description: "Thanks for buying🙏",
+                    status: 'success',
+                    duration: 5000,
+                    isClosable: true,
+                    position:'top'
+                  })  
+  
+                  navigate('/')
+                },3000)
+                
           });
       });
   };
