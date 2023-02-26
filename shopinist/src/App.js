@@ -8,7 +8,7 @@ import { Divider } from '@chakra-ui/react';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Navbar/>
       <Divider/>
       <Navroutes/>

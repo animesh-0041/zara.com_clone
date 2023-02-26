@@ -22,8 +22,8 @@ import {
   CardFooter,
   useToast
 } from "@chakra-ui/react";
-function Singlemanpage() {
-  const { manid } = useParams();
+function Searchsinglepage() {
+  const { searchproid } = useParams();
   const intstate = {
     load: false,
     er: false,
@@ -43,7 +43,7 @@ function Singlemanpage() {
   const fetchdata = () => {
     dispatch({ type: "LOAD", payload: true });
     axios
-      .get(`http://localhost:3000/mensData/${manid}`)
+      .get(`http://localhost:3000/allproduct/${searchproid}`)
       .then((res) => {
         setSinglemandata(res.data);
         dispatch({ type: "LOAD", payload: false });
@@ -168,7 +168,7 @@ function Singlemanpage() {
         >
           {contextstate.load?<Spinner/>:"Add to bag"}
         </Button>
-        <Link to="/man">
+        <Link to="/search">
           {" "}
           <Button
             bg={"red.500"}
@@ -185,4 +185,4 @@ function Singlemanpage() {
     </Box>
   );
 }
-export default Singlemanpage;
+export default Searchsinglepage;

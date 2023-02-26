@@ -15,15 +15,10 @@ import {
   Image,
   Text,
   Button,
-  ButtonGroup,
-  Stack,
-  Divider,
-  CardBody,
-  CardFooter,
   useToast
 } from "@chakra-ui/react";
-function Singlemanpage() {
-  const { manid } = useParams();
+function Singlewomanpage() {
+  const { womanid } = useParams();
   const intstate = {
     load: false,
     er: false,
@@ -43,9 +38,10 @@ function Singlemanpage() {
   const fetchdata = () => {
     dispatch({ type: "LOAD", payload: true });
     axios
-      .get(`http://localhost:3000/mensData/${manid}`)
+      .get(`http://localhost:3000/womenData/${womanid}`)
       .then((res) => {
         setSinglemandata(res.data);
+        console.log(res.data);
         dispatch({ type: "LOAD", payload: false });
       })
       .catch((Error) => {
@@ -66,7 +62,7 @@ function Singlemanpage() {
   if (state.load) {
     return (
       <Box h={'100vh'} w={'100vw'} display='flex' justifyContent={'center'} alignItems='center'>
-        <Center>
+      
           <Spinner
             thickness="4px"
             speed="0.65s"
@@ -74,55 +70,50 @@ function Singlemanpage() {
             color="blue.500"
             size="xl"
           />
-        </Center>
+      
       </Box>
     );
   }
 
-  // added to cart
-
-  const addedtocart=()=>{
+//added to cart
+const addedtocart=()=>{
  
-    if(contextstate.isAuth){
-     
-    axios.get(`http://localhost:3000/signin/${contextstate.activeid}`
-    )
-    .then((res)=>{
-        for (const i of res.data.cart) {
-          if(i.id==singlemandata.id){
-            toast({
-              title: 'Product already added.',
-              status: 'warning',
-              duration: 1000,
-              isClosable: true,
-              position:'top'
-            })
-            return;
-          }
+  if(contextstate.isAuth){
+   
+  axios.get(`http://localhost:3000/signin/${contextstate.activeid}`
+  )
+  .then((res)=>{
+      for (const i of res.data.cart) {
+        if(i.id==singlemandata.id){
+          toast({
+            title: 'Product already added.',
+            status: 'warning',
+            duration: 1000,
+            isClosable: true,
+            position:'top'
+          })
+          return;
         }
-        contextdispatch({type:"LOAD",payload:true})
-      axios.patch(`http://localhost:3000/signin/${contextstate.activeid}`,{
-        cart:[...res.data.cart,{...singlemandata,quantity:1}]
-      }).then((r)=>{
-        contextdispatch({type:"LOAD",payload:false})
-        toast({
-          title: 'Product added to bag.',
-          status: 'success',
-          duration: 1000,
-          isClosable: true,
-          position:'top'
-        })
+      }
+      contextdispatch({type:"LOAD",payload:true})
+    axios.patch(`http://localhost:3000/signin/${contextstate.activeid}`,{
+      cart:[...res.data.cart,{...singlemandata,quantity:1}]
+    }).then((r)=>{
+      toast({
+        title: 'Product added to bag.',
+        status: 'success',
+        duration: 1000,
+        isClosable: true,
+        position:'top'
       })
-  
+      contextdispatch({type:"LOAD",payload:false})
     })
-    
-  }
-  contextdispatch({type:"FOR_RENDER",payload:!contextstate.forrender})
-  }
 
-
-
-
+  })
+  
+}
+contextdispatch({type:"FOR_RENDER",payload:!contextstate.forrender})
+}
 
 
 
@@ -166,9 +157,9 @@ function Singlemanpage() {
             background: "teal.500",
           }}
         >
-          {contextstate.load?<Spinner/>:"Add to bag"}
+         {contextstate.load?<Spinner/>:"Add to bag"}
         </Button>
-        <Link to="/man">
+        <Link to="/woman">
           {" "}
           <Button
             bg={"red.500"}
@@ -185,4 +176,4 @@ function Singlemanpage() {
     </Box>
   );
 }
-export default Singlemanpage;
+export default Singlewomanpage;
