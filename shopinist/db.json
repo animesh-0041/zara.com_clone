@@ -1770,24 +1770,7 @@
       "address": "",
       "pincode": "",
       "states": "",
-      "cart": [
-        {
-          "id": 60,
-          "title": "SRAGLEN OVER Regular Kid Multicolor Sweaters",
-          "catagory": "Sweaters",
-          "price": "5999.00",
-          "orgprice": "9999.00",
-          "color": "red",
-          "image": "https://diesel.gumlet.io/product/410345350005/665/410345350005_1_5872.webp?compress=true&q=70",
-          "additionalImg": [
-            "https://diesel.gumlet.io/product/410345350005/665/410345350005_2_2250.webp?compress=true&q=70",
-            "https://diesel.gumlet.io/product/410345350005/665/410345350005_1_5872.webp?compress=true&q=70",
-            "https://diesel.gumlet.io/product/410345350005/665/410345350005_1_5872.webp?compress=true&q=70",
-            "https://diesel.gumlet.io/product/410345350005/665/410345350005_2_2250.webp?compress=true&q=70"
-          ],
-          "quantity": 1
-        }
-      ],
+      "cart": [],
       "id": 4
     },
     {
@@ -1839,6 +1822,61 @@
       "states": "westbengal",
       "cart": [],
       "id": 7
+    },
+    {
+      "firstname": "jhantu",
+      "lastname": "Ghoroi",
+      "email": "j@gmail.com",
+      "password": "123456",
+      "address": "",
+      "pincode": "",
+      "states": "",
+      "cart": [],
+      "id": 8
+    },
+    {
+      "firstname": "",
+      "lastname": "",
+      "email": "dipti@gmail.com",
+      "password": "123456",
+      "address": "",
+      "pincode": "",
+      "states": "",
+      "cart": [],
+      "id": 9
+    },
+    {
+      "firstname": "",
+      "lastname": "",
+      "email": "dipti@gmail.com",
+      "password": "123456",
+      "address": "",
+      "pincode": "",
+      "states": "",
+      "cart": [],
+      "id": 10
+    },
+    {
+      "firstname": "",
+      "lastname": "",
+      "email": "dipti@gmail.com",
+      "password": "123456",
+      "address": "",
+      "pincode": "",
+      "states": "",
+      "cart": [],
+      "id": 11
+    },
+    {
+      "firstname": "Kripa`",
+      "lastname": "Pandy",
+      "email": "kripa@gmail.com",
+      "password": "123456",
+      "address": "",
+      "pincode": "",
+      "states": "",
+      "cart": [],
+      "id": 12
     }
   ],
   "allproduct": [

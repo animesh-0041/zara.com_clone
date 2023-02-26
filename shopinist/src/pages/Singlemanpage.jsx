@@ -101,6 +101,7 @@ function Singlemanpage() {
           }
         }
         contextdispatch({type:"LOAD",payload:true})
+        
       axios.patch(`http://localhost:3000/signin/${contextstate.activeid}`,{
         cart:[...res.data.cart,{...singlemandata,quantity:1}]
       }).then((r)=>{

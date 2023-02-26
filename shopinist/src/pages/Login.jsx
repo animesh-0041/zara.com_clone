@@ -57,7 +57,7 @@ function Login() {
   const { contextdispatch, contextstate } = useContext(Authcontext);
 
   return (
-    <Box display={"flex"} justifyContent={"space-around"} m={"150px"}>
+    <Box display={"flex"} justifyContent={"space-around"} m={["40px","40px","150px"]} flexDirection={["column","column","row"]}>
       <Box>
         <Heading size={"sm"}>Log in your account</Heading>
         <Input
@@ -94,7 +94,7 @@ function Login() {
           <Text>Have you forgetten your password?</Text>
         </Link>
       </Box>
-      <Box w="30%" mt={"20px"}>
+      <Box w={["100%","100%","30%"]} mt={"20px"}>
         <Text>Need an account?</Text>
         <Link to="/register">
           {" "}
