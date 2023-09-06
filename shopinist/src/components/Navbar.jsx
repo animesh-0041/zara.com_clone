@@ -25,7 +25,7 @@ function Navbar() {
   useEffect(() => {
     if (contextstate.isAuth) {
       axios
-        .get(`http://localhost:3000/signin/${contextstate.activeid}`)
+        .get(`https://shopinist.onrender.com/signin/${contextstate.activeid}`)
         .then((res) => setAvtara(res.data.firstname + " " + res.data.lastname));
     } else {
       setAvtara("");
@@ -51,7 +51,7 @@ const handlesearchvalue=(searchvalue)=>{
       <Heading className="navbar"></Heading>
       <Link to={"/"}>
         {" "}
-        <Image src="https://i.ibb.co/v1558dJ/new-logo2.png" />
+        <Image src="https://i.ibb.co/v1558dJ/new-logo2.png" alt="logo"/>
       </Link>
       <Box>
         <NavLink
@@ -111,7 +111,7 @@ const handlesearchvalue=(searchvalue)=>{
             color={"white"}
             src="https://bit.ly/tioluwani-kolawole"
             bg={"teal"}
-            mr="-200px"
+            
           />
         </NavLink>
       ) : (
@@ -121,6 +121,7 @@ const handlesearchvalue=(searchvalue)=>{
           </Button>
         </Link>
       )}
+      <Link to={'/adminsignin'} ><Button ml={"-50px"} size={"sm"} >Admin</Button> </Link>
       <Link to="/cart">
         <BsCartPlusFill size={25} />
       </Link>

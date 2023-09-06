@@ -16,6 +16,10 @@ import Privateroute from "./Privateroute";
 import Checkout from "../pages/Checkout";
 import Search from "../pages/Search";
 import Searchsinglepage from "../pages/Searchsinglepage";
+import Admin from "../pages/Admin";
+import Allusersshow from "../pages/Allusersshow";
+import Addproduct from "../pages/Addproduct";
+import Adminsignin from "../pages/Adminsignin";
 function Navroutes() {
   return (
     <Routes>
@@ -29,6 +33,10 @@ function Navroutes() {
       <Route path="/userdashboard" element={<Userdashboard />}></Route>
       <Route path="/checkout" element={<Checkout/>}></Route>
       <Route path="/search" element={<Search/>}></Route>
+      <Route path="/admin" element={<Admin/>}></Route>
+      <Route path="/allusersshow" element={<Allusersshow/>}></Route>
+      <Route path="/addproduct" element={<Addproduct/>}></Route>
+      <Route path="/adminsignin" element={<Adminsignin/>}></Route>
       <Route
         path="/cart"
         element={

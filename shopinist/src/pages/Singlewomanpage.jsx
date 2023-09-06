@@ -17,6 +17,7 @@ import {
   Button,
   useToast
 } from "@chakra-ui/react";
+import Navbar from "../components/Navbar";
 function Singlewomanpage() {
   const { womanid } = useParams();
   const intstate = {
@@ -38,7 +39,7 @@ function Singlewomanpage() {
   const fetchdata = () => {
     dispatch({ type: "LOAD", payload: true });
     axios
-      .get(`http://localhost:3000/womenData/${womanid}`)
+      .get(`https://shopinist.onrender.com/womenData/${womanid}`)
       .then((res) => {
         setSinglemandata(res.data);
         console.log(res.data);
@@ -57,10 +58,15 @@ function Singlewomanpage() {
   const toast=useToast()
   const { contextdispatch, contextstate } = useContext(Authcontext);
   if (state.er) {
-    return <Heading size={"md"}>Please Refresh!</Heading>;
+    return <>
+    <Navbar/>
+    <Heading size={"md"}>Please Refresh!</Heading>
+    </>
   }
   if (state.load) {
     return (
+      <>
+      <Navbar/>
       <Box h={'100vh'} w={'100vw'} display='flex' justifyContent={'center'} alignItems='center'>
       
           <Spinner
@@ -72,6 +78,7 @@ function Singlewomanpage() {
           />
       
       </Box>
+      </>
     );
   }
 
@@ -80,7 +87,7 @@ const addedtocart=()=>{
  
   if(contextstate.isAuth){
    
-  axios.get(`http://localhost:3000/signin/${contextstate.activeid}`
+  axios.get(`https://shopinist.onrender.com/signin/${contextstate.activeid}`
   )
   .then((res)=>{
       for (const i of res.data.cart) {
@@ -96,7 +103,7 @@ const addedtocart=()=>{
         }
       }
       contextdispatch({type:"LOAD",payload:true})
-    axios.patch(`http://localhost:3000/signin/${contextstate.activeid}`,{
+    axios.patch(`https://shopinist.onrender.com/signin/${contextstate.activeid}`,{
       cart:[...res.data.cart,{...singlemandata,quantity:1}]
     }).then((r)=>{
       toast({
@@ -119,6 +126,9 @@ contextdispatch({type:"FOR_RENDER",payload:!contextstate.forrender})
 
 
   return (
+    <>
+    <Navbar/>
+    
     <Box display={"flex"} justifyContent="space-around" m="50px 0">
       <Box>
         <Card maxW="xs">
@@ -174,6 +184,7 @@ contextdispatch({type:"FOR_RENDER",payload:!contextstate.forrender})
         </Link>
       </Box>
     </Box>
+    </>
   );
 }
 export default Singlewomanpage;

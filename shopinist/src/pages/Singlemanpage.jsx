@@ -22,6 +22,7 @@ import {
   CardFooter,
   useToast
 } from "@chakra-ui/react";
+import Navbar from "../components/Navbar";
 function Singlemanpage() {
   const { manid } = useParams();
   const intstate = {
@@ -43,7 +44,7 @@ function Singlemanpage() {
   const fetchdata = () => {
     dispatch({ type: "LOAD", payload: true });
     axios
-      .get(`http://localhost:3000/mensData/${manid}`)
+      .get(`https://shopinist.onrender.com/mensData/${manid}`)
       .then((res) => {
         setSinglemandata(res.data);
         dispatch({ type: "LOAD", payload: false });
@@ -85,7 +86,7 @@ function Singlemanpage() {
  
     if(contextstate.isAuth){
      
-    axios.get(`http://localhost:3000/signin/${contextstate.activeid}`
+    axios.get(`https://shopinist.onrender.com/signin/${contextstate.activeid}`
     )
     .then((res)=>{
         for (const i of res.data.cart) {
@@ -102,7 +103,7 @@ function Singlemanpage() {
         }
         contextdispatch({type:"LOAD",payload:true})
         
-      axios.patch(`http://localhost:3000/signin/${contextstate.activeid}`,{
+      axios.patch(`https://shopinist.onrender.com/signin/${contextstate.activeid}`,{
         cart:[...res.data.cart,{...singlemandata,quantity:1}]
       }).then((r)=>{
         contextdispatch({type:"LOAD",payload:false})
@@ -129,6 +130,8 @@ function Singlemanpage() {
 
 
   return (
+    <>
+    <Navbar/>
     <Box display={"flex"} justifyContent="space-around" m="50px 0">
       <Box>
         <Card maxW="xs">
@@ -184,6 +187,7 @@ function Singlemanpage() {
         </Link>
       </Box>
     </Box>
+    </>
   );
 }
 export default Singlemanpage;

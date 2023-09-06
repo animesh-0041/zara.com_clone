@@ -2,6 +2,7 @@ import { SimpleGrid, Spinner, Box, Center, Heading } from "@chakra-ui/react";
 import { useEffect, useState, useReducer } from "react";
 import Cards from "../components/Cards";
 import axios from "axios";
+import Navbar from "../components/Navbar";
 
 const intstate = {
   load: false,
@@ -23,7 +24,7 @@ function Kids() {
   const fetchdata = () => {
     dispatch({ type: "LOAD", payload: true });
     axios
-      .get(`http://localhost:3000/kidsData`)
+      .get(`https://shopinist.onrender.com/kidsData`)
       .then((res) => {
         setKidsdata(res.data);
         dispatch({ type: "LOAD", payload: false });
@@ -61,6 +62,9 @@ function Kids() {
     );
   }
   return (
+    <>
+    <Navbar/>
+   
     <SimpleGrid
       spacing={4}
       templateColumns="repeat(auto-fill, minmax(200px, 1fr))"
@@ -68,6 +72,7 @@ function Kids() {
     >
       <Cards data={kidsdata} type={"kids"} />
     </SimpleGrid>
+    </>
   );
 }
 export default Kids;

@@ -6,6 +6,7 @@ import { useDisclosure } from '@chakra-ui/react'
 import { useEffect, useState, useReducer } from "react";
 import Cards from "../components/Cards";
 import axios from "axios";
+import Navbar from "../components/Navbar";
 
 
 const intstate = {
@@ -31,7 +32,7 @@ function Man() {
   const fetchdata = () => {
     dispatch({ type: "LOAD", payload: true });
     axios
-      .get(`http://localhost:3000/mensData`)
+      .get(`https://shopinist.onrender.com/mensData`)
       .then((res) => {
         setMandata(res.data);
         setTempdata(res.data)
@@ -95,7 +96,7 @@ const asc=(v)=>{
     setchecking(!checking)
   }
   setchecking(!checking)
-  axios.get('http://localhost:3000/mensData?_sort=price&_order=asc')
+  axios.get('https://shopinist.onrender.com/mensData?_sort=price&_order=asc')
   .then((res)=> setTempdata(res.data));
   
  
@@ -105,7 +106,7 @@ const desc=(v)=>{
   if(v){
     setchecking(!checking)
   }
-  axios.get('http://localhost:3000/mensData?_sort=price&_order=desc')
+  axios.get('https://shopinist.onrender.com/mensData?_sort=price&_order=desc')
   .then((res)=> setTempdata(res.data));
  
 }
@@ -113,7 +114,7 @@ const desc=(v)=>{
 const asctitle=(v)=>{
   
   setChk(!chk)
-  axios.get('http://localhost:3000/mensData?_sort=titel&_order=asc')
+  axios.get('https://shopinist.onrender.com/mensData?_sort=titel&_order=asc')
   .then((res)=> setTempdata(res.data));
   
  
@@ -121,13 +122,16 @@ const asctitle=(v)=>{
 //desc fileter by price
 const desctitle=(v)=>{
   setChk(!chk)
-  axios.get('http://localhost:3000/mensData?_sort=title&_order=desc')
+  axios.get('https://shopinist.onrender.com/mensData?_sort=title&_order=desc')
   .then((res)=> setTempdata(res.data));
  
 }
 
 
   return (
+    <>
+    <Navbar/>
+    
     <Box m={'40px 20px 20px 20px'}>
      <Box display={'flex'}>
      <Select placeholder='select color' w={'10%'} m='10px' onChange={(e)=>selectbycolor(e.target.value)}>
@@ -167,6 +171,7 @@ const desctitle=(v)=>{
       <Cards data={tempdata} type={'man'}/>
     </SimpleGrid>
     </Box>
+    </>
   );
 }
 export default Man;

@@ -5,15 +5,14 @@ import Carousel from './components/Carousel';
 import Navroutes from './allroutes/Navroutes';
 import Footer from './components/Footer';
 import { Divider } from '@chakra-ui/react';
-
+import Admin from './pages/Admin';
 function App() {
   return (
     <div>
-      <Navbar/>
-      <Divider/>
+      {/* <Navbar/> */}
+      {/* <Divider/> */}
       <Navroutes/>
       <Footer/>
-      {/* <Carousel/> */}
     </div>
   );
 }

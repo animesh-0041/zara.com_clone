@@ -520,6 +520,14 @@
         "https://diesel.gumlet.io/product/410345261006/665/410345261006_4_9664.webp?compress=true&q=70"
       ],
       "id": 30
+    },
+    {
+      "title": "T-shirt",
+      "price": "999",
+      "color": "red",
+      "catagory": "shirt",
+      "image": "https://static.zara.net/photos///2023/V/0/1/p/0264/850/023/2/w/208/0264850023_6_1_1.jpg?ts=1673435959733",
+      "id": 31
     }
   ],
   "womenData": [
@@ -1347,6 +1355,22 @@
         "https://diesel.gumlet.io/product/410345041009/665/410345041009_4_2603.webp?compress=true&q=70"
       ],
       "id": 58
+    },
+    {
+      "title": "ASYMMETRIC TOP",
+      "price": "899",
+      "color": "pink",
+      "catagory": "tops",
+      "image": "https://static.zara.net/photos///2023/V/0/1/p/4770/024/630/2/w/208/4770024630_1_1_1.jpg?ts=1676387674906",
+      "id": 59
+    },
+    {
+      "title": "Nailpolish",
+      "price": "777",
+      "color": "pink",
+      "catagory": "nailpolish",
+      "image": "https://static.zara.net/photos///2023/V/2/1/p/0120/511/999/2/w/208/0120511999_6_1_1.jpg?ts=1673264632261",
+      "id": 60
     }
   ],
   "kidsData": [
@@ -1724,159 +1748,154 @@
         "https://diesel.gumlet.io/product/410345356010/665/410345356008_2_7202.webp?compress=true&q=70"
       ],
       "id": 81
+    },
+    {
+      "title": "PLAIN CUT-OUT TOP",
+      "price": "799",
+      "color": "yellow",
+      "catagory": "top",
+      "image": "https://static.zara.net/photos///2023/V/0/3/p/2335/601/615/2/w/208/2335601615_6_1_1.jpg?ts=1677138724709",
+      "id": 82
+    },
+    {
+      "title": "Rustic top",
+      "price": "852",
+      "color": "white",
+      "catagory": "top",
+      "image": "https://static.zara.net/photos///2023/V/0/3/p/8675/609/105/2/w/208/8675609105_6_1_1.jpg?ts=1676538004409",
+      "id": 83
+    },
+    {
+      "title": "Striped knit top",
+      "price": "459",
+      "color": "red",
+      "catagory": "tops",
+      "image": "https://static.zara.net/photos///2023/V/0/3/p/0339/602/944/2/w/208/0339602944_6_1_1.jpg?ts=1676465458379",
+      "id": 84
     }
   ],
   "cart": [],
-  "admin": [],
+  "admin": [
+    {
+      "userid": "123456",
+      "password": "123456"
+    }
+  ],
   "signin": [
     {
-      "firstname": "animesh",
-      "lastname": "ghoroi",
-      "email": "eve.holt@reqres.in",
-      "password": "cityslicka",
-      "address": "",
-      "pincode": "",
-      "states": "bihar",
-      "cart": [],
-      "id": 1
-    },
-    {
-      "firstname": "Biman",
-      "lastname": "Patra",
-      "email": "Biman@gmail.com",
-      "password": "123456",
-      "address": "benia",
-      "pincode": "721144",
-      "states": "westbengal",
-      "cart": [],
-      "id": 2
-    },
-    {
-      "firstname": "animesh ",
-      "lastname": "ghoroi",
-      "email": "animesh@gmail.com",
-      "password": "123456",
-      "address": "",
-      "pincode": "",
-      "states": "",
-      "cart": [],
-      "id": 3
-    },
-    {
-      "firstname": "dipti",
-      "lastname": "mondal",
-      "email": "dipti@gmail.com",
-      "password": "123456",
-      "address": "",
-      "pincode": "",
-      "states": "",
-      "cart": [],
-      "id": 4
-    },
-    {
-      "firstname": "santanu",
-      "lastname": "samanta",
-      "email": "santanu@gmail.com",
-      "password": "123456",
-      "address": "",
-      "pincode": "",
-      "states": "",
-      "cart": [],
-      "id": 5
-    },
-    {
-      "firstname": "Nila ",
+      "firstname": "Animesh",
       "lastname": "Ghoroi",
-      "email": "nila@gmail.com",
-      "password": "123456",
+      "email": "a@gmail.com",
+      "password": "789",
       "address": "gumai",
       "pincode": "721144",
-      "states": "delhi",
+      "states": "up",
       "cart": [
         {
-          "id": 61,
-          "title": "PMUST Regular Kid Blue Pants",
-          "catagory": "Pants",
-          "price": "5999.00",
-          "orgprice": "9999.00",
+          "title": "T-DIEGOS SLIM FIT MEN BLUE T-SHIRT",
+          "catagory": "shirt",
+          "price": "1699.00",
+          "orgprice": "1999.00",
           "color": "blue",
-          "image": "https://diesel.gumlet.io/product/410345347010/665/410345347010_1_9051.webp?compress=true&q=70",
+          "image": "https://diesel.gumlet.io/product/410291631004/665/410291631004_1.jpg?compress=true&q=70",
           "additionalImg": [
-            "https://diesel.gumlet.io/product/410345347010/665/410345347010_1_9051.webp?compress=true&q=70",
-            "https://diesel.gumlet.io/product/410345350005/665/410345350005_1_5872.webp?compress=true&q=70",
-            "https://diesel.gumlet.io/product/410345350005/665/410345350005_1_5872.webp?compress=true&q=70",
-            "https://diesel.gumlet.io/product/410345347010/665/410345347010_1_9051.webp?compress=true&q=70"
+            "https://diesel.gumlet.io/product/410291631004/665/410291631004_1.jpg?compress=true&q=70",
+            "https://diesel.gumlet.io/product/410291631004/665/410291631004_2.jpg?compress=true&q=70",
+            "https://diesel.gumlet.io/product/410291631004/665/410291631004_3.jpg?compress=true&q=70",
+            "https://diesel.gumlet.io/product/410291631004/665/410291631004_4.jpg?compress=true&q=70"
           ],
+          "id": 4,
+          "quantity": 1
+        },
+        {
+          "title": "Nailpolish",
+          "price": "777",
+          "color": "pink",
+          "catagory": "nailpolish",
+          "image": "https://static.zara.net/photos///2023/V/2/1/p/0120/511/999/2/w/208/0120511999_6_1_1.jpg?ts=1673264632261",
+          "id": 60,
           "quantity": 1
         }
       ],
-      "id": 6
+      "id": 16
     },
     {
-      "firstname": "s",
-      "lastname": "s",
+      "firstname": "Santanu ",
+      "lastname": "Samanta ",
       "email": "s@gmail.com",
       "password": "123456",
       "address": "",
       "pincode": "",
+      "states": "",
+      "cart": [],
+      "id": 17
+    },
+    {
+      "firstname": "omkant",
+      "lastname": "yadav",
+      "email": "o@gmail.com",
+      "password": "1234",
+      "address": "",
+      "pincode": "721144",
+      "states": "up",
+      "cart": [
+        {
+          "title": "D-LARY REGULAR FIT WOMEN BLACK DRESS",
+          "catagory": "dress",
+          "price": "7995.00",
+          "orgprice": "8599.00",
+          "color": "black",
+          "image": "https://diesel.gumlet.io/product/410243593005/665/410243593002_3.jpg?compress=true&q=70",
+          "additionalImg": [
+            "https://diesel.gumlet.io/product/410243593005/665/410243593002_3.jpg?compress=true&q=70",
+            "https://diesel.gumlet.io/product/410243593005/665/410243593002_5.jpg?compress=true&q=70",
+            "https://diesel.gumlet.io/product/410243593005/665/410243593002_6.jpg?compress=true&q=70",
+            "https://diesel.gumlet.io/product/410243593005/665/410243593002_2.jpg?compress=true&q=70"
+          ],
+          "id": 3,
+          "quantity": 1
+        }
+      ],
+      "id": 18
+    },
+    {
+      "firstname": "vineet",
+      "lastname": "kumar",
+      "email": "v@gmail.com",
+      "password": "12345",
+      "address": "",
+      "pincode": "721144",
+      "states": "up",
+      "cart": [
+        {
+          "title": "1969 D-EBBEY Flare Women Blue Jeans",
+          "catagory": "jeans",
+          "price": "11999.00",
+          "orgprice": "19999.00",
+          "color": "blue",
+          "image": "https://diesel.gumlet.io/product/410345262007/665/410345262007_1_9805.webp?compress=true&q=70",
+          "additionalImg": [
+            "https://diesel.gumlet.io/product/410344989005/665/410344989005_1_1636.webp?compress=true&q=70",
+            "https://diesel.gumlet.io/product/410344989005/665/410344989005_1_1636.webp?compress=true&q=70",
+            "https://diesel.gumlet.io/product/410344989005/665/410344989005_1_1636.webp?compress=true&q=70",
+            "https://diesel.gumlet.io/product/410344989005/665/410344989005_1_1636.webp?compress=true&q=70"
+          ],
+          "id": 36,
+          "quantity": 1
+        }
+      ],
+      "id": 19
+    },
+    {
+      "firstname": "sourav",
+      "lastname": "lahiri",
+      "email": "sourav@gmail.com",
+      "password": "1234",
+      "address": "gfhgf",
+      "pincode": "721144",
       "states": "westbengal",
       "cart": [],
-      "id": 7
-    },
-    {
-      "firstname": "jhantu",
-      "lastname": "Ghoroi",
-      "email": "j@gmail.com",
-      "password": "123456",
-      "address": "",
-      "pincode": "",
-      "states": "",
-      "cart": [],
-      "id": 8
-    },
-    {
-      "firstname": "",
-      "lastname": "",
-      "email": "dipti@gmail.com",
-      "password": "123456",
-      "address": "",
-      "pincode": "",
-      "states": "",
-      "cart": [],
-      "id": 9
-    },
-    {
-      "firstname": "",
-      "lastname": "",
-      "email": "dipti@gmail.com",
-      "password": "123456",
-      "address": "",
-      "pincode": "",
-      "states": "",
-      "cart": [],
-      "id": 10
-    },
-    {
-      "firstname": "",
-      "lastname": "",
-      "email": "dipti@gmail.com",
-      "password": "123456",
-      "address": "",
-      "pincode": "",
-      "states": "",
-      "cart": [],
-      "id": 11
-    },
-    {
-      "firstname": "Kripa`",
-      "lastname": "Pandy",
-      "email": "kripa@gmail.com",
-      "password": "123456",
-      "address": "",
-      "pincode": "",
-      "states": "",
-      "cart": [],
-      "id": 12
+      "id": 20
     }
   ],
   "allproduct": [
