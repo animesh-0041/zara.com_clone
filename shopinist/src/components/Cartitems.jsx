@@ -22,7 +22,7 @@ function Cartitem({img,quantity,title,price,id}) {
 //deletecartitem
 const deletecartitem=(id)=>{
   contextdispatch({type:"LOAD",payload:true})
-  axios.get(`http://localhost:3000/signin/${contextstate.activeid}`,{
+  axios.get(`https://shopinist.onrender.com/signin/${contextstate.activeid}`,{
   })
   .then((res)=>{
    let afterdelete=res.data.cart.filter((item)=>{
@@ -30,7 +30,7 @@ const deletecartitem=(id)=>{
       return item
     }
    })
-   axios.patch(`http://localhost:3000/signin/${contextstate.activeid}`,{
+   axios.patch(`https://shopinist.onrender.com/signin/${contextstate.activeid}`,{
     cart:afterdelete
   }).then((res)=>{
     contextdispatch({type:"LOAD",payload:false})
@@ -51,7 +51,7 @@ const deletecartitem=(id)=>{
 //decreasequantity
 const decreasequantity=(id)=>{
   
-  axios.get(`http://localhost:3000/signin/${contextstate.activeid}`)
+  axios.get(`https://shopinist.onrender.com/signin/${contextstate.activeid}`)
   .then((res)=>{
     let afterdecrease=res.data.cart.filter((item)=>{
       if(item.id==id){
@@ -62,7 +62,7 @@ const decreasequantity=(id)=>{
         return item
       }
     })
-    axios.patch(`http://localhost:3000/signin/${contextstate.activeid}`,{
+    axios.patch(`https://shopinist.onrender.com/signin/${contextstate.activeid}`,{
     cart:afterdecrease
   }).then((res)=>{
     contextdispatch({type:"FOR_RENDER",payload:!contextstate.forrender});
@@ -73,7 +73,7 @@ const decreasequantity=(id)=>{
 //increasequantity
 const increasequantity=(id)=>{
   
-  axios.get(`http://localhost:3000/signin/${contextstate.activeid}`)
+  axios.get(`https://shopinist.onrender.com/signin/${contextstate.activeid}`)
   .then((res)=>{
     let afterdecrease=res.data.cart.filter((item)=>{
       if(item.id==id){
@@ -84,7 +84,7 @@ const increasequantity=(id)=>{
         return item
       }
     })
-    axios.patch(`http://localhost:3000/signin/${contextstate.activeid}`,{
+    axios.patch(`https://shopinist.onrender.com/signin/${contextstate.activeid}`,{
     cart:afterdecrease
   }).then((res)=>{
     contextdispatch({type:"FOR_RENDER",payload:!contextstate.forrender});

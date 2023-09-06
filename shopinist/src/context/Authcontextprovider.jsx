@@ -40,7 +40,7 @@ function Authcontextprovider({children}){
     const [contextstate,contextdispatch]=useReducer(contextreducer,intcontext);
     useEffect(()=>{
         if(contextstate.isAuth){
-            axios.get(`http://localhost:3000/signin/${contextstate.activeid}`)
+            axios.get(`https://shopinist.onrender.com/signin/${contextstate.activeid}`)
             .then((res)=>contextdispatch({type:"BEFORE_CART",payload:res.data.cart}))
         }
         else{

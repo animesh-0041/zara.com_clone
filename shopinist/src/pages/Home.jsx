@@ -1,8 +1,12 @@
 import Carousel from 'react-bootstrap/Carousel';
+import Navbar from '../components/Navbar';
 
 
 function Home() {
   return (
+    <>
+    <Navbar/>
+    
     <Carousel fade>
       <Carousel.Item>
         <img
@@ -42,6 +46,7 @@ function Home() {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+    </>
   );
 }
 

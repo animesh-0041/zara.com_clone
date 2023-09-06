@@ -22,6 +22,7 @@ import {
   CardFooter,
   useToast
 } from "@chakra-ui/react";
+import Navbar from "../components/Navbar";
 function Searchsinglepage() {
   const { searchproid } = useParams();
   const intstate = {
@@ -43,7 +44,7 @@ function Searchsinglepage() {
   const fetchdata = () => {
     dispatch({ type: "LOAD", payload: true });
     axios
-      .get(`http://localhost:3000/allproduct/${searchproid}`)
+      .get(`https://shopinist.onrender.com/allproduct/${searchproid}`)
       .then((res) => {
         setSinglemandata(res.data);
         dispatch({ type: "LOAD", payload: false });
@@ -85,7 +86,7 @@ function Searchsinglepage() {
  
     if(contextstate.isAuth){
      
-    axios.get(`http://localhost:3000/signin/${contextstate.activeid}`
+    axios.get(`https://shopinist.onrender.com/signin/${contextstate.activeid}`
     )
     .then((res)=>{
         for (const i of res.data.cart) {
@@ -101,7 +102,7 @@ function Searchsinglepage() {
           }
         }
         contextdispatch({type:"LOAD",payload:true})
-      axios.patch(`http://localhost:3000/signin/${contextstate.activeid}`,{
+      axios.patch(`https://shopinist.onrender.com/signin/${contextstate.activeid}`,{
         cart:[...res.data.cart,{...singlemandata,quantity:1}]
       }).then((r)=>{
         contextdispatch({type:"LOAD",payload:false})
@@ -128,6 +129,8 @@ function Searchsinglepage() {
 
 
   return (
+    <>
+    <Navbar/>
     <Box display={"flex"} justifyContent="space-around" m="50px 0">
       <Box>
         <Card maxW="xs">
@@ -183,6 +186,7 @@ function Searchsinglepage() {
         </Link>
       </Box>
     </Box>
+    </>
   );
 }
 export default Searchsinglepage;

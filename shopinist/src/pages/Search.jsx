@@ -3,6 +3,7 @@ import axios from "axios"
 import { useState,useEffect,useContext,useReducer } from "react";
 import { Authcontext } from "../context/Authcontextprovider";
 import Cards from "../components/Cards";
+import Navbar from "../components/Navbar";
 
 const intstate = {
     load: false,
@@ -27,7 +28,7 @@ const [state, dispatch] = useReducer(reduce, intstate);
 const fetchdata = () => {
     dispatch({ type: "LOAD", payload: true });
     axios
-      .get(`http://localhost:3000/allproduct`)
+      .get(`https://shopinist.onrender.com/allproduct`)
       .then((res) => {
         setTempdata(res.data)
         dispatch({ type: "LOAD", payload: false });
@@ -37,7 +38,7 @@ const fetchdata = () => {
       });
   };
 const searchresult=(val)=>{
-        axios.get(`http://localhost:3000/allproduct/`)
+        axios.get(`https://shopinist.onrender.com/allproduct/`)
         .then((res)=>{
             let searchReasult = res.data.filter((el) => {
                 return el.title.toLowerCase().includes(val.toLowerCase());
@@ -78,7 +79,9 @@ const searchresult=(val)=>{
     );
   }
 
-    return <Box w={'90%'} m='auto' pt={"20px"}>
+    return <>
+    <Navbar/>
+    <Box w={'90%'} m='auto' pt={"20px"}>
 
 <SimpleGrid
       spacing={4}
@@ -89,5 +92,6 @@ const searchresult=(val)=>{
     </SimpleGrid>
 
     </Box>
+    </>
 }
 export default Search

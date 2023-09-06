@@ -17,6 +17,7 @@ import {
 import { BiChevronsRight } from "react-icons/bi";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Navbar from "../components/Navbar";
 
 function Checkout() {
   const { contextdispatch, contextstate, carttotal } = useContext(Authcontext);
@@ -26,10 +27,10 @@ function Checkout() {
   const makepayment = () => {
     contextdispatch({type:"LOAD",payload:true})
     axios
-      .get(`http://localhost:3000/signin/${contextstate.activeid}`)
+      .get(`https://shopinist.onrender.com/signin/${contextstate.activeid}`)
       .then((res) => {
         axios
-          .patch(`http://localhost:3000/signin/${contextstate.activeid}`, {
+          .patch(`https://shopinist.onrender.com/signin/${contextstate.activeid}`, {
             cart: [],
           })
           .then((r) => {
@@ -54,6 +55,9 @@ function Checkout() {
   };
 
   return (
+    <>
+    <Navbar/>
+    
     <Box
       boxShadow="md"
       p="6"
@@ -148,6 +152,7 @@ function Checkout() {
         </Link>
       </Box>
     </Box>
+    </>
   );
 }
 export default Checkout;

@@ -6,6 +6,7 @@ import { useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { Authcontext } from "../context/Authcontextprovider";
+import Navbar from "../components/Navbar";
 let temp=JSON.parse(localStorage.getItem("activestatus"))||false;
 let activeid=JSON.parse(localStorage.getItem("activeid"))||null
 
@@ -50,13 +51,15 @@ function Login() {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:3000/signin").then((res) => {
+    axios.get("https://shopinist.onrender.com/signin").then((res) => {
       setLogindata(res.data);
     });
   }, []);
   const { contextdispatch, contextstate } = useContext(Authcontext);
 
   return (
+    <>
+    <Navbar/>
     <Box display={"flex"} justifyContent={"space-around"} m={["40px","40px","150px"]} flexDirection={["column","column","row"]}>
       <Box>
         <Heading size={"sm"}>Log in your account</Heading>
@@ -112,6 +115,7 @@ function Login() {
         </Link>
       </Box>
     </Box>
+    </>
   );
 }
 export default Login;

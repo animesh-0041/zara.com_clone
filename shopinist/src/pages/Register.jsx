@@ -12,6 +12,7 @@ import { useReducer, useContext,useEffect,useState } from "react";
 import { useToast } from "@chakra-ui/react";
 import { Authcontext } from "../context/Authcontextprovider";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 const intstate = {
   firstname: "",
   lastname: "",
@@ -54,7 +55,7 @@ function Register() {
   const { contextdispatch, contextstate } = useContext(Authcontext);
   const [logindata, setLogindata] = useState([]);
   const fetchdata =()=>{
-    axios.get("http://localhost:3000/signin").then((res) => {
+    axios.get("https://shopinist.onrender.com/signin").then((res) => {
       setLogindata(res.data);
     });
   }
@@ -93,7 +94,7 @@ const navigate=useNavigate()
 // })
 // .then((res)=>console.log(res.data))
     axios
-      .post("http://localhost:3000/signin", {
+      .post("https://shopinist.onrender.com/signin", {
         ...state,cart:[]
       })
       .then((res) => {
@@ -121,6 +122,8 @@ const navigate=useNavigate()
   };
 
   return (
+    <>
+    <Navbar/>
     <Box m="100px" boxShadow='xs' p={'50px'}>
       <Box w={"50%"} m="auto">
         <Heading size={"sm"}>Create Your Acoount</Heading>
@@ -201,6 +204,7 @@ const navigate=useNavigate()
         </Button>
       </Box>
     </Box>
+    </>
   );
 }
 export default Register;
